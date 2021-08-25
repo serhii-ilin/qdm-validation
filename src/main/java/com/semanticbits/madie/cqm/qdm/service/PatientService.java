@@ -86,9 +86,10 @@ public class PatientService {
     private JsonNode jsonSchemaFor(Class clazz) {
         // Schema can be pre-generated in advance with a maven plugin
         // Need to add Jackson Module to support *Required fields validation
-        JacksonModule module = new JacksonModule(JacksonOption.RESPECT_JSONPROPERTY_REQUIRED );
-        SchemaGeneratorConfigBuilder configBuilder = new SchemaGeneratorConfigBuilder(SchemaVersion.DRAFT_2019_09, OptionPreset.PLAIN_JSON);
-        //                .with(module).with(Option.FORBIDDEN_ADDITIONAL_PROPERTIES_BY_DEFAULT);
+        JacksonModule jacksonModule = new JacksonModule(JacksonOption.RESPECT_JSONPROPERTY_REQUIRED );
+        SchemaGeneratorConfigBuilder configBuilder = new SchemaGeneratorConfigBuilder(SchemaVersion.DRAFT_2019_09, OptionPreset.PLAIN_JSON)
+                .with(jacksonModule);
+        //      .with(Option.FORBIDDEN_ADDITIONAL_PROPERTIES_BY_DEFAULT);
         // FIXME FORBIDDEN_ADDITIONAL_PROPERTIES_BY_DEFAULT doesn't seems to work well if Jackson property name
         //  is different from a JSON one.  Affects expectedValues vs expected-values. Perhaps can be tweaked or
         //  re-designed in the schema. Possible can be tweaked as a new Module or an Option.
