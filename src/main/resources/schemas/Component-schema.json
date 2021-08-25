@@ -1,0 +1,36 @@
+{
+  "$schema" : "https://json-schema.org/draft/2019-09/schema",
+  "$defs" : {
+    "String" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "type" : "string"
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "properties" : {
+    "code" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "$ref" : "#/$defs/String"
+        },
+        "display" : {
+          "$ref" : "#/$defs/String"
+        },
+        "system" : {
+          "$ref" : "#/$defs/String"
+        },
+        "version" : {
+          "$ref" : "#/$defs/String"
+        }
+      }
+    },
+    "result" : {
+      "type" : "object"
+    }
+  }
+}

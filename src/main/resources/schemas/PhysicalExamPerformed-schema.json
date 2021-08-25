@@ -1,0 +1,141 @@
+{
+  "$schema" : "https://json-schema.org/draft/2019-09/schema",
+  "$defs" : {
+    "Any" : {
+      "type" : "object"
+    },
+    "Boolean" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "Code" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "$ref" : "#/$defs/String"
+        },
+        "display" : {
+          "$ref" : "#/$defs/String"
+        },
+        "system" : {
+          "$ref" : "#/$defs/String"
+        },
+        "version" : {
+          "$ref" : "#/$defs/String"
+        }
+      }
+    },
+    "DateTime" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "type" : "string"
+        }
+      }
+    },
+    "String" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "type" : "string"
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "properties" : {
+    "anatomicalLocationSite" : {
+      "$ref" : "#/$defs/Code"
+    },
+    "authorDatetime" : {
+      "$ref" : "#/$defs/DateTime"
+    },
+    "code" : {
+      "$ref" : "#/$defs/Code"
+    },
+    "component" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "$ref" : "#/$defs/Code"
+          },
+          "result" : {
+            "$ref" : "#/$defs/Any"
+          }
+        }
+      }
+    },
+    "id" : {
+      "$ref" : "#/$defs/String"
+    },
+    "method" : {
+      "$ref" : "#/$defs/Code"
+    },
+    "negationRationale" : {
+      "$ref" : "#/$defs/Code"
+    },
+    "patientId" : {
+      "$ref" : "#/$defs/String"
+    },
+    "performer" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "$ref" : "#/$defs/String"
+          },
+          "identifier" : {
+            "type" : "object",
+            "properties" : {
+              "namingSystem" : {
+                "$ref" : "#/$defs/String"
+              },
+              "value" : {
+                "$ref" : "#/$defs/String"
+              }
+            }
+          }
+        }
+      }
+    },
+    "reason" : {
+      "$ref" : "#/$defs/Code"
+    },
+    "relatedTo" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/$defs/String"
+      }
+    },
+    "relevantDatetime" : {
+      "$ref" : "#/$defs/DateTime"
+    },
+    "relevantPeriod" : {
+      "type" : "object",
+      "properties" : {
+        "high" : {
+          "$ref" : "#/$defs/DateTime"
+        },
+        "highClosed" : {
+          "$ref" : "#/$defs/Boolean"
+        },
+        "low" : {
+          "$ref" : "#/$defs/DateTime"
+        },
+        "lowClosed" : {
+          "$ref" : "#/$defs/Boolean"
+        }
+      }
+    },
+    "result" : {
+      "$ref" : "#/$defs/Any"
+    }
+  }
+}

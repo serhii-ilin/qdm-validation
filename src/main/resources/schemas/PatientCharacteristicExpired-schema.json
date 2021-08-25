@@ -1,0 +1,53 @@
+{
+  "$schema" : "https://json-schema.org/draft/2019-09/schema",
+  "$defs" : {
+    "Code" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "$ref" : "#/$defs/String"
+        },
+        "display" : {
+          "$ref" : "#/$defs/String"
+        },
+        "system" : {
+          "$ref" : "#/$defs/String"
+        },
+        "version" : {
+          "$ref" : "#/$defs/String"
+        }
+      }
+    },
+    "String" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "type" : "string"
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "properties" : {
+    "cause" : {
+      "$ref" : "#/$defs/Code"
+    },
+    "code" : {
+      "$ref" : "#/$defs/Code"
+    },
+    "expiredDatetime" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "type" : "string"
+        }
+      }
+    },
+    "id" : {
+      "$ref" : "#/$defs/String"
+    },
+    "patientId" : {
+      "$ref" : "#/$defs/String"
+    }
+  }
+}

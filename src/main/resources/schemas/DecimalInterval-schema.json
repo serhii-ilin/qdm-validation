@@ -1,0 +1,36 @@
+{
+  "$schema" : "https://json-schema.org/draft/2019-09/schema",
+  "$defs" : {
+    "Boolean" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "Decimal" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "type" : "number"
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "properties" : {
+    "high" : {
+      "$ref" : "#/$defs/Decimal"
+    },
+    "highClosed" : {
+      "$ref" : "#/$defs/Boolean"
+    },
+    "low" : {
+      "$ref" : "#/$defs/Decimal"
+    },
+    "lowClosed" : {
+      "$ref" : "#/$defs/Boolean"
+    }
+  }
+}

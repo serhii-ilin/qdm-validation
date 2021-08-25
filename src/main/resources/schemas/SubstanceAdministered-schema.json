@@ -1,0 +1,128 @@
+{
+  "$schema" : "https://json-schema.org/draft/2019-09/schema",
+  "$defs" : {
+    "Boolean" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "Code" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "$ref" : "#/$defs/String"
+        },
+        "display" : {
+          "$ref" : "#/$defs/String"
+        },
+        "system" : {
+          "$ref" : "#/$defs/String"
+        },
+        "version" : {
+          "$ref" : "#/$defs/String"
+        }
+      }
+    },
+    "DateTime" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "type" : "string"
+        }
+      }
+    },
+    "String" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "type" : "string"
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "properties" : {
+    "authorDatetime" : {
+      "$ref" : "#/$defs/DateTime"
+    },
+    "code" : {
+      "$ref" : "#/$defs/Code"
+    },
+    "dosage" : {
+      "type" : "object",
+      "properties" : {
+        "unit" : {
+          "$ref" : "#/$defs/String"
+        },
+        "value" : {
+          "type" : "object",
+          "properties" : {
+            "value" : {
+              "type" : "number"
+            }
+          }
+        }
+      }
+    },
+    "frequency" : {
+      "$ref" : "#/$defs/Code"
+    },
+    "id" : {
+      "$ref" : "#/$defs/String"
+    },
+    "negationRationale" : {
+      "$ref" : "#/$defs/Code"
+    },
+    "patientId" : {
+      "$ref" : "#/$defs/String"
+    },
+    "performer" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "$ref" : "#/$defs/String"
+          },
+          "identifier" : {
+            "type" : "object",
+            "properties" : {
+              "namingSystem" : {
+                "$ref" : "#/$defs/String"
+              },
+              "value" : {
+                "$ref" : "#/$defs/String"
+              }
+            }
+          }
+        }
+      }
+    },
+    "relevantDatetime" : {
+      "$ref" : "#/$defs/DateTime"
+    },
+    "relevantPeriod" : {
+      "type" : "object",
+      "properties" : {
+        "high" : {
+          "$ref" : "#/$defs/DateTime"
+        },
+        "highClosed" : {
+          "$ref" : "#/$defs/Boolean"
+        },
+        "low" : {
+          "$ref" : "#/$defs/DateTime"
+        },
+        "lowClosed" : {
+          "$ref" : "#/$defs/Boolean"
+        }
+      }
+    },
+    "route" : {
+      "$ref" : "#/$defs/Code"
+    }
+  }
+}

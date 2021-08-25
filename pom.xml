@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.5.3</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.semanticbits.madie.cqm</groupId>
+	<artifactId>qdm</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>qdm</name>
+	<description>eCQM QDM Persistance</description>
+	<properties>
+		<java.version>11</java.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-rest</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-rest-hal-explorer</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.8.0</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<version>3.0.0</version>
+			<scope>runtime</scope>
+		</dependency>
+
+
+
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>de.flapdoodle.embed</groupId>
+			<artifactId>de.flapdoodle.embed.mongo</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.restdocs</groupId>
+			<artifactId>spring-restdocs-mockmvc</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- mongock  -->
+		<dependency>
+			<groupId>com.github.cloudyrock.mongock</groupId>
+			<artifactId>mongock-spring-v5</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.github.cloudyrock.mongock</groupId>
+			<artifactId>mongodb-springdata-v3-driver</artifactId>
+		</dependency>
+
+<!--		&lt;!&ndash; Schema validation &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>org.everit.json</groupId>-->
+<!--			<artifactId>org.everit.json.schema</artifactId>-->
+<!--			<version>1.3.0</version>-->
+<!--		</dependency>-->
+
+<!--		&lt;!&ndash; needed by org.everit.json &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>org.json</groupId>-->
+<!--			<artifactId>json</artifactId>-->
+<!--			<version>20171018</version>-->
+<!--		</dependency>-->
+		<!-- Schema validation -->
+		<dependency>
+			<groupId>com.networknt</groupId>
+			<artifactId>json-schema-validator</artifactId>
+			<version>1.0.57</version>
+		</dependency>
+
+		<!-- schema generation -->
+		<dependency>
+			<groupId>com.github.victools</groupId>
+			<artifactId>jsonschema-generator</artifactId>
+			<version>4.18.0</version>
+		</dependency>
+		<!-- support of jackson annotations in schema generation -->
+		<dependency>
+			<groupId>com.github.victools</groupId>
+			<artifactId>jsonschema-module-jackson</artifactId>
+			<version>[4.16.0,5.0.0)</version>
+		</dependency>
+
+		<!-- JSON JsonPath-->
+		<dependency>
+			<groupId>com.jayway.jsonpath</groupId>
+			<artifactId>json-path</artifactId>
+			<version>2.4.0</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.asciidoctor</groupId>
+				<artifactId>asciidoctor-maven-plugin</artifactId>
+				<version>1.5.8</version>
+				<executions>
+					<execution>
+						<id>generate-docs</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>process-asciidoc</goal>
+						</goals>
+						<configuration>
+							<backend>html</backend>
+							<doctype>book</doctype>
+						</configuration>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.springframework.restdocs</groupId>
+						<artifactId>spring-restdocs-asciidoctor</artifactId>
+						<version>${spring-restdocs.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxb2-maven-plugin</artifactId>
+				<version>2.5.0</version>
+				<executions>
+					<execution>
+						<id>xjc</id>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>src/main/resources/qdm.5.4.xsd</source>
+								<source>src/main/resources/qdm.5.5.xsd</source>
+								<source>src/main/resources/qdm.5.6.xsd</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- Supports only V3 -->
+<!--			<plugin>-->
+<!--				<groupId>io.gravitee.maven.plugins</groupId>-->
+<!--				<artifactId>json-schema-generator-maven-plugin</artifactId>-->
+<!--				<version>1.3.0</version>-->
+<!--				<executions>-->
+<!--					<execution>-->
+<!--						<phase>generate-resources</phase>-->
+<!--						<goals>-->
+<!--							<goal>generate-json-schemas</goal>-->
+<!--						</goals>-->
+<!--					</execution>-->
+<!--				</executions>-->
+<!--				<configuration>-->
+<!--					<includes>-->
+<!--						<include>org/hl7/elm_types/r1/*.class</include>-->
+<!--						<include>gov/healthit/qdm/v5_4/*.class</include>-->
+<!--						<include>gov/healthit/qdm/v5_5/*.class</include>-->
+<!--						<include>gov/healthit/qdm/v5_6/*.class</include>-->
+<!--						<include>com/semanticbits/madie/cqm/qdm/Address.class</include>-->
+<!--						<include>com/semanticbits/madie/cqm/qdm/Patient.class</include>-->
+<!--						<include>com/semanticbits/madie/cqm/qdm/Provider.class</include>-->
+<!--						<include>com/semanticbits/madie/cqm/qdm/QDMPatient.class</include>-->
+<!--						<include>com/semanticbits/madie/cqm/qdm/Telecom.class</include>-->
+<!--						<include>com/semanticbits/madie/cqm/qdm/ValueSet.class</include>-->
+<!--					</includes>-->
+<!--				</configuration>-->
+<!--			</plugin>-->
+			<plugin>
+				<groupId>com.github.victools</groupId>
+				<artifactId>jsonschema-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<schemaVersion>DRAFT_2019_09</schemaVersion>
+					<packageNames>
+						<packageName>org.hl7.elm_types.r1</packageName>
+						<packageName>gov.healthit.qdm.v5_4</packageName>
+						<packageName>gov.healthit.qdm.v5_5</packageName>
+						<packageName>gov.healthit.qdm.v5_6</packageName>
+					</packageNames>
+					<classNames>com.semanticbits.madie.cqm.qdm.Address</classNames>
+					<classNames>com.semanticbits.madie.cqm.qdm.Patient</classNames>
+					<classNames>com.semanticbits.madie.cqm.qdm.Provider</classNames>
+					<classNames>com.semanticbits.madie.cqm.qdm.QDMPatient</classNames>
+					<classNames>com.semanticbits.madie.cqm.qdm.Telecom</classNames>
+					<classNames>com.semanticbits.madie.cqm.qdm.ValueSet</classNames>
+					<modules>
+						<module>
+							<name>Jackson</name>
+							<options>
+								<option>RESPECT_JSONPROPERTY_REQUIRED</option>
+							</options>
+						</module>
+					</modules>
+					<options>
+						<preset>PLAIN_JSON</preset>
+						<enabled>
+							<option>FORBIDDEN_ADDITIONAL_PROPERTIES_BY_DEFAULT</option>
+							<option>DEFINITIONS_FOR_ALL_OBJECTS</option>
+						</enabled>
+					</options>
+					<schemaFilePath>src/main/resources/schemas</schemaFilePath>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.github.cloudyrock.mongock</groupId>
+				<artifactId>mongock-bom</artifactId>
+				<version>4.1.19</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>

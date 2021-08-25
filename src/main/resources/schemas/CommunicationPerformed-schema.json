@@ -1,0 +1,105 @@
+{
+  "$schema" : "https://json-schema.org/draft/2019-09/schema",
+  "$defs" : {
+    "Code" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "$ref" : "#/$defs/String"
+        },
+        "display" : {
+          "$ref" : "#/$defs/String"
+        },
+        "system" : {
+          "$ref" : "#/$defs/String"
+        },
+        "version" : {
+          "$ref" : "#/$defs/String"
+        }
+      }
+    },
+    "DateTime" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "type" : "string"
+        }
+      }
+    },
+    "QDMEntity" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "$ref" : "#/$defs/String"
+        },
+        "identifier" : {
+          "type" : "object",
+          "properties" : {
+            "namingSystem" : {
+              "$ref" : "#/$defs/String"
+            },
+            "value" : {
+              "$ref" : "#/$defs/String"
+            }
+          }
+        }
+      }
+    },
+    "String" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "type" : "string"
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "properties" : {
+    "authorDatetime" : {
+      "$ref" : "#/$defs/DateTime"
+    },
+    "category" : {
+      "$ref" : "#/$defs/Code"
+    },
+    "code" : {
+      "$ref" : "#/$defs/Code"
+    },
+    "id" : {
+      "$ref" : "#/$defs/String"
+    },
+    "medium" : {
+      "$ref" : "#/$defs/Code"
+    },
+    "negationRationale" : {
+      "$ref" : "#/$defs/Code"
+    },
+    "patientId" : {
+      "$ref" : "#/$defs/String"
+    },
+    "receivedDatetime" : {
+      "$ref" : "#/$defs/DateTime"
+    },
+    "recipient" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/$defs/QDMEntity"
+      }
+    },
+    "relatedTo" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/$defs/String"
+      }
+    },
+    "sender" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/$defs/QDMEntity"
+      }
+    },
+    "sentDatetime" : {
+      "$ref" : "#/$defs/DateTime"
+    }
+  }
+}

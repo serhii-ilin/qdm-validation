@@ -1,0 +1,64 @@
+{
+  "$schema" : "https://json-schema.org/draft/2019-09/schema",
+  "$defs" : {
+    "Id" : {
+      "type" : "object",
+      "properties" : {
+        "namingSystem" : {
+          "$ref" : "#/$defs/String"
+        },
+        "value" : {
+          "$ref" : "#/$defs/String"
+        }
+      }
+    },
+    "String" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "type" : "string"
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "properties" : {
+    "authorDatetime" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "type" : "string"
+        }
+      }
+    },
+    "code" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "$ref" : "#/$defs/String"
+        },
+        "display" : {
+          "$ref" : "#/$defs/String"
+        },
+        "system" : {
+          "$ref" : "#/$defs/String"
+        },
+        "version" : {
+          "$ref" : "#/$defs/String"
+        }
+      }
+    },
+    "id" : {
+      "$ref" : "#/$defs/Id"
+    },
+    "patientId" : {
+      "$ref" : "#/$defs/Id"
+    },
+    "recorder" : {
+      "$ref" : "#/$defs/Id"
+    },
+    "reporter" : {
+      "$ref" : "#/$defs/Id"
+    }
+  }
+}

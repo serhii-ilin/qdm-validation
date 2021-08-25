@@ -1,0 +1,49 @@
+{
+  "$schema" : "https://json-schema.org/draft/2019-09/schema",
+  "$defs" : {
+    "Boolean" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "Quantity" : {
+      "type" : "object",
+      "properties" : {
+        "unit" : {
+          "type" : "object",
+          "properties" : {
+            "value" : {
+              "type" : "string"
+            }
+          }
+        },
+        "value" : {
+          "type" : "object",
+          "properties" : {
+            "value" : {
+              "type" : "number"
+            }
+          }
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "properties" : {
+    "high" : {
+      "$ref" : "#/$defs/Quantity"
+    },
+    "highClosed" : {
+      "$ref" : "#/$defs/Boolean"
+    },
+    "low" : {
+      "$ref" : "#/$defs/Quantity"
+    },
+    "lowClosed" : {
+      "$ref" : "#/$defs/Boolean"
+    }
+  }
+}

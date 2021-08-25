@@ -1,0 +1,26 @@
+{
+  "_id": "5d278db531fe5f6f3e4c1c0f",
+  "bundleId": "5a57e977942c6d1e61d32f14",
+  "expectedValues": [
+    {
+      "measure_id": "C0D72444-7C26-4863-9B51-8080F8928A85",
+      "population_index": 0,
+      "IPP": 0,
+      "DENOM": 0,
+      "DENEX": 0,
+      "NUMER": 0
+    }
+  ],
+  "familyName": "PatientCharacteristic",
+  "givenNames": [
+    "Test"
+  ],
+  "measure_ids": [
+    "C0D72444-7C26-4863-9B51-8080F8928A85"
+  ],
+  "notes": "",
+  "provider_ids": [
+
+  ],
+  "user_id": "501fdba3044a111b98000001"
+}

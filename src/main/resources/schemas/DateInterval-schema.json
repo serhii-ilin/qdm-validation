@@ -1,0 +1,36 @@
+{
+  "$schema" : "https://json-schema.org/draft/2019-09/schema",
+  "$defs" : {
+    "Boolean" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "Date" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "type" : "string"
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "properties" : {
+    "high" : {
+      "$ref" : "#/$defs/Date"
+    },
+    "highClosed" : {
+      "$ref" : "#/$defs/Boolean"
+    },
+    "low" : {
+      "$ref" : "#/$defs/Date"
+    },
+    "lowClosed" : {
+      "$ref" : "#/$defs/Boolean"
+    }
+  }
+}

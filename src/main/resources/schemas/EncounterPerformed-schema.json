@@ -1,0 +1,173 @@
+{
+  "$schema" : "https://json-schema.org/draft/2019-09/schema",
+  "$defs" : {
+    "Boolean" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "Code" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "$ref" : "#/$defs/String"
+        },
+        "display" : {
+          "$ref" : "#/$defs/String"
+        },
+        "system" : {
+          "$ref" : "#/$defs/String"
+        },
+        "version" : {
+          "$ref" : "#/$defs/String"
+        }
+      }
+    },
+    "DateTime" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "type" : "string"
+        }
+      }
+    },
+    "DateTimeInterval" : {
+      "type" : "object",
+      "properties" : {
+        "high" : {
+          "$ref" : "#/$defs/DateTime"
+        },
+        "highClosed" : {
+          "$ref" : "#/$defs/Boolean"
+        },
+        "low" : {
+          "$ref" : "#/$defs/DateTime"
+        },
+        "lowClosed" : {
+          "$ref" : "#/$defs/Boolean"
+        }
+      }
+    },
+    "String" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "type" : "string"
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "properties" : {
+    "admissionSource" : {
+      "$ref" : "#/$defs/Code"
+    },
+    "authorDatetime" : {
+      "$ref" : "#/$defs/DateTime"
+    },
+    "clazz" : {
+      "$ref" : "#/$defs/Code"
+    },
+    "code" : {
+      "$ref" : "#/$defs/Code"
+    },
+    "diagnoses" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "$ref" : "#/$defs/Code"
+          },
+          "presentOnAdmissionIndicator" : {
+            "$ref" : "#/$defs/Code"
+          },
+          "rank" : {
+            "type" : "object",
+            "properties" : {
+              "value" : {
+                "type" : "integer"
+              }
+            }
+          }
+        }
+      }
+    },
+    "dischargeDisposition" : {
+      "$ref" : "#/$defs/Code"
+    },
+    "facilityLocation" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "$ref" : "#/$defs/Code"
+          },
+          "locationPeriod" : {
+            "$ref" : "#/$defs/DateTimeInterval"
+          }
+        }
+      }
+    },
+    "id" : {
+      "$ref" : "#/$defs/String"
+    },
+    "lengthOfStay" : {
+      "type" : "object",
+      "properties" : {
+        "unit" : {
+          "$ref" : "#/$defs/String"
+        },
+        "value" : {
+          "type" : "object",
+          "properties" : {
+            "value" : {
+              "type" : "number"
+            }
+          }
+        }
+      }
+    },
+    "participant" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "$ref" : "#/$defs/String"
+          },
+          "identifier" : {
+            "type" : "object",
+            "properties" : {
+              "namingSystem" : {
+                "$ref" : "#/$defs/String"
+              },
+              "value" : {
+                "$ref" : "#/$defs/String"
+              }
+            }
+          }
+        }
+      }
+    },
+    "patientId" : {
+      "$ref" : "#/$defs/String"
+    },
+    "priority" : {
+      "$ref" : "#/$defs/Code"
+    },
+    "relatedTo" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/$defs/String"
+      }
+    },
+    "relevantPeriod" : {
+      "$ref" : "#/$defs/DateTimeInterval"
+    }
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "$schema" : "https://json-schema.org/draft/2019-09/schema",
+  "$defs" : {
+    "Code" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "$ref" : "#/$defs/String"
+        },
+        "display" : {
+          "$ref" : "#/$defs/String"
+        },
+        "system" : {
+          "$ref" : "#/$defs/String"
+        },
+        "version" : {
+          "$ref" : "#/$defs/String"
+        }
+      }
+    },
+    "QDMEntity" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "$ref" : "#/$defs/String"
+        },
+        "identifier" : {
+          "type" : "object",
+          "properties" : {
+            "namingSystem" : {
+              "$ref" : "#/$defs/String"
+            },
+            "value" : {
+              "$ref" : "#/$defs/String"
+            }
+          }
+        }
+      }
+    },
+    "Quantity" : {
+      "type" : "object",
+      "properties" : {
+        "unit" : {
+          "$ref" : "#/$defs/String"
+        },
+        "value" : {
+          "type" : "object",
+          "properties" : {
+            "value" : {
+              "type" : "number"
+            }
+          }
+        }
+      }
+    },
+    "String" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "type" : "string"
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "properties" : {
+    "authorDatetime" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "type" : "string"
+        }
+      }
+    },
+    "code" : {
+      "$ref" : "#/$defs/Code"
+    },
+    "daysSupplied" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "dosage" : {
+      "$ref" : "#/$defs/Quantity"
+    },
+    "frequency" : {
+      "$ref" : "#/$defs/Code"
+    },
+    "id" : {
+      "$ref" : "#/$defs/String"
+    },
+    "negationRationale" : {
+      "$ref" : "#/$defs/Code"
+    },
+    "patientId" : {
+      "$ref" : "#/$defs/String"
+    },
+    "prescriber" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/$defs/QDMEntity"
+      }
+    },
+    "recorder" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/$defs/QDMEntity"
+      }
+    },
+    "refills" : {
+      "type" : "integer"
+    },
+    "route" : {
+      "$ref" : "#/$defs/Code"
+    },
+    "supply" : {
+      "$ref" : "#/$defs/Quantity"
+    }
+  }
+}

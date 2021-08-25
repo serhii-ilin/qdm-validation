@@ -1,0 +1,47 @@
+{
+  "$schema" : "https://json-schema.org/draft/2019-09/schema",
+  "$defs" : {
+    "Code" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "$ref" : "#/$defs/String"
+        },
+        "display" : {
+          "$ref" : "#/$defs/String"
+        },
+        "system" : {
+          "$ref" : "#/$defs/String"
+        },
+        "version" : {
+          "$ref" : "#/$defs/String"
+        }
+      }
+    },
+    "String" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "type" : "string"
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "properties" : {
+    "code" : {
+      "$ref" : "#/$defs/Code"
+    },
+    "presentOnAdmissionIndicator" : {
+      "$ref" : "#/$defs/Code"
+    },
+    "rank" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "type" : "integer"
+        }
+      }
+    }
+  }
+}

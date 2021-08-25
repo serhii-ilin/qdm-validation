@@ -1,0 +1,6 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost/madie_qdm_poc
+mongock:
+  change-logs-scan-package: com.semanticbits.madie.cqm.qdm.changes

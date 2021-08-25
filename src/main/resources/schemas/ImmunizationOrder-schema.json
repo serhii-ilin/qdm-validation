@@ -1,0 +1,103 @@
+{
+  "$schema" : "https://json-schema.org/draft/2019-09/schema",
+  "$defs" : {
+    "Code" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "$ref" : "#/$defs/String"
+        },
+        "display" : {
+          "$ref" : "#/$defs/String"
+        },
+        "system" : {
+          "$ref" : "#/$defs/String"
+        },
+        "version" : {
+          "$ref" : "#/$defs/String"
+        }
+      }
+    },
+    "DateTime" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "type" : "string"
+        }
+      }
+    },
+    "String" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "type" : "string"
+        }
+      }
+    }
+  },
+  "type" : "object",
+  "properties" : {
+    "activeDatetime" : {
+      "$ref" : "#/$defs/DateTime"
+    },
+    "authorDatetime" : {
+      "$ref" : "#/$defs/DateTime"
+    },
+    "code" : {
+      "$ref" : "#/$defs/Code"
+    },
+    "dosage" : {
+      "type" : "object",
+      "properties" : {
+        "unit" : {
+          "$ref" : "#/$defs/String"
+        },
+        "value" : {
+          "type" : "object",
+          "properties" : {
+            "value" : {
+              "type" : "number"
+            }
+          }
+        }
+      }
+    },
+    "id" : {
+      "$ref" : "#/$defs/String"
+    },
+    "negationRationale" : {
+      "$ref" : "#/$defs/Code"
+    },
+    "patientId" : {
+      "$ref" : "#/$defs/String"
+    },
+    "reason" : {
+      "$ref" : "#/$defs/Code"
+    },
+    "requester" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "$ref" : "#/$defs/String"
+          },
+          "identifier" : {
+            "type" : "object",
+            "properties" : {
+              "namingSystem" : {
+                "$ref" : "#/$defs/String"
+              },
+              "value" : {
+                "$ref" : "#/$defs/String"
+              }
+            }
+          }
+        }
+      }
+    },
+    "route" : {
+      "$ref" : "#/$defs/Code"
+    }
+  }
+}
